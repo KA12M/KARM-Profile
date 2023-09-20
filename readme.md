@@ -24,9 +24,9 @@
 
 <!-- description -->
 
-- [![React][React.js]][React-url]
-- [![Node][Node.js]][Node-url]
-- [![Mongodb][Mongodb]][Mongodb-url]
+* [![React][React.js]][React-url]
+* [![Node][Node.js]][Node-url]
+* [![Mongodb][Mongodb]][Mongodb-url]
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: www.linkedin.com/in/karan-khumthong-983a14291
