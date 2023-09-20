@@ -15,6 +15,10 @@ app.use(express.json());
 
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("server is listening...");
+})
+
 app.use("/api/blogs", routes.blogs);
 app.use("/api/upload-image", routes.uploadImage);
 
