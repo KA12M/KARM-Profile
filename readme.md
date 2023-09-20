@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/KA12M/KARM-Profile.git">
-    <img src="assets/images/KARM-Panda.jpg" alt="Logo" width="240">
+    <img src="assets/images/KARM-Panda.jpg" alt="Logo" width="160">
   </a>
 
   <h3 align="center">KARM-Profile</h3>
