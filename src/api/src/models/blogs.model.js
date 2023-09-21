@@ -11,6 +11,11 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      required: true,
+      default: "general",
+    },
     images: {
       type: [String],
       required: true,
@@ -27,7 +32,7 @@ const blogSchema = new mongoose.Schema(
   }
 );
 
-blogSchema.pre('findByIdAndUpdate', function (next) {
+blogSchema.pre("findByIdAndUpdate", function (next) {
   this.update({}, { $set: { updatedAt: new Date() } });
   next();
 });

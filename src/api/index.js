@@ -3,6 +3,8 @@ const cors = require("cors");
 require("dotenv").config();
 require("./src/db/mongo.config");
 
+const morgan = require("morgan");
+
 const routes = require("./src/routers");
 
 const app = express();
