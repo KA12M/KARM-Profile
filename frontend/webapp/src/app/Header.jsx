@@ -7,7 +7,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Header() {
+export default function Header({ karm }) {
   return (
     <div className="page">
       <div className="header-container"></div>
@@ -18,19 +18,19 @@ export default function Header() {
           src="assets/images/KARM-Panda.jpg"
           alt=""
         />
-        <h1>~Karan Khumthong~</h1>
-        <span>Software Developer / Web Developer</span>
+        <h1>{karm.fullName}</h1>
+        <span>{karm.jobTitle && karm.jobTitle.join(" / ")}</span>
         <div className="header-icons">
-          <a href={import.meta.env.VITE_FACEBOOK ?? ""} target="_blank">
+          <a href={karm.facebook ?? "#"} target="_blank">
             <FontAwesomeIcon className="icon" icon={faFacebook} />
           </a>
-          <a href={import.meta.env.VITE_INSTAGRAM ?? ""} target="_blank">
+          <a href={karm.instagram ?? "#"} target="_blank">
             <FontAwesomeIcon className="icon" icon={faInstagram} />
           </a>
-          <a href={import.meta.env.VITE_LINKEDIN ?? ""} target="_blank">
+          <a href={karm.linkedin ?? "#"} target="_blank">
             <FontAwesomeIcon className="icon" icon={faLinkedin} />
           </a>
-          <a href={import.meta.env.VITE_GITHUB ?? ""} target="_blank">
+          <a href={karm.github ?? "#"} target="_blank">
             <FontAwesomeIcon className="icon" icon={faSquareGithub} />
           </a>
         </div>

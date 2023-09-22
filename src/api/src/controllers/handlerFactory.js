@@ -57,6 +57,8 @@ exports.getAll = (Model) =>
     // To allowed for nested GET reviews on tour (hack)
     let filter = {};
 
+    const total = await Model.countDocuments();
+
     // EXECUTE QUERY
     const features = new APIFeature(Model.find(filter), req.query)
       .search("title")
@@ -68,5 +70,14 @@ exports.getAll = (Model) =>
     const doc = await features.query;
 
     // RESPONSE
-    res.status(200).json({ status: "success", result: doc.length, data: doc });
+    res.status(200).json({
+      status: "success",
+      pagination: {
+        ...features.pageOptions,
+        totalPage: Math.ceil(total / features.pageOptions.limit),
+        result: doc.length,
+        total,
+      },
+      data: doc,
+    });
   });
