@@ -1,11 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faSquareGithub,
-  faLinkedin,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import HeaderIcon from "../components/HeaderIcon";
 
 export default function Header({ karm }) {
   return (
@@ -18,22 +12,10 @@ export default function Header({ karm }) {
           src="assets/images/KARM-Panda.jpg"
           alt=""
         />
-        <h1>{karm.fullName}</h1>
-        <span>{karm.jobTitle && karm.jobTitle.join(" / ")}</span>
-        <div className="header-icons">
-          <a href={karm.facebook ?? "#"} target="_blank">
-            <FontAwesomeIcon className="icon" icon={faFacebook} />
-          </a>
-          <a href={karm.instagram ?? "#"} target="_blank">
-            <FontAwesomeIcon className="icon" icon={faInstagram} />
-          </a>
-          <a href={karm.linkedin ?? "#"} target="_blank">
-            <FontAwesomeIcon className="icon" icon={faLinkedin} />
-          </a>
-          <a href={karm.github ?? "#"} target="_blank">
-            <FontAwesomeIcon className="icon" icon={faSquareGithub} />
-          </a>
-        </div>
+        <h1>{karm && `~${karm.fullName}~`}</h1>
+        <span>{karm && karm.jobTitle && karm.jobTitle.join(" / ")}</span>
+
+        {karm && <HeaderIcon karm={karm} />}
       </div>
     </div>
   );

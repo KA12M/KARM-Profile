@@ -72,14 +72,8 @@ body {
   animation: fadeTitleFont 0.8s ease-in-out;
 }
 
-.header-content span {
-  animation: fadeInCenter 0.8s ease-in-out;
-}
-
-.karm-avatar {
-  animation: fadeInCenter 0.8s ease-in-out;
-}
-
+.header-content span,
+.karm-avatar,
 .header-icons {
   animation: fadeInCenter 0.8s ease-in-out;
 }
@@ -89,10 +83,11 @@ body {
   animation: fadeInUpL 0.8s ease-in-out;
 }
 
-.blog-card {
+.blog-card,
+#scroll-top-btn,
+.technology-section h1,
+.grid-image,
+.about-me-title,
+.d-about-me {
   animation: fadeInUpS 0.8s ease-in-out;
-}
-
-#scroll-top-btn {
-  animation: fadeInUpS 0.8s ease-in-out; 
 }

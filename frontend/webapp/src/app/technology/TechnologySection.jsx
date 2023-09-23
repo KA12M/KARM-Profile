@@ -11,7 +11,7 @@ export default function TechnologySection() {
   return (
     <div className="technology-section">
       <div className="container">
-        <h1>Skills</h1>
+        <h1>My Skills</h1>
 
         <div className="grid-image">
           {technologies.map((tech, i) => (

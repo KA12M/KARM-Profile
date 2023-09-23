@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 import { GetData } from "../../services/blogs";
-
+ 
 export default function BlogSection() {
   const [blogs, setBlogs] = useState();
 
   useEffect(() => {
     GetData().then(setBlogs);
-  }, []);
+  }, []); 
 
   return (
     <div className="blog-section">
