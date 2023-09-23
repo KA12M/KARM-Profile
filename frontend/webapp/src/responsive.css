@@ -45,6 +45,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .d-about-me {
-    padding: 0 2rem; 
+    padding: 0 1rem; 
   }
 }

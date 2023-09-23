@@ -4,7 +4,7 @@
 
 .header-container {
   min-height: 100vh;
-  background: url("assets/images/premium_photo-1678566111483-f45ad346d50a.avif");
+  background: url("/assets/images/premium_photo-1678566111483-f45ad346d50a.avif");
   background-position: center;
   background-size: cover;
   filter: brightness(10%);
