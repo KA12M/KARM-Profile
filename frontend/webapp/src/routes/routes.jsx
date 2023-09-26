@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import App from "../App";
-import HomePage from "../App/home/HomePage"
+import HomePage from "../app/home/HomePage"
 
 export const Routes = (
   <Route path={"/"} element={<App />}>
