@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 
 import "./index.css";
 import "./responsive.css";
+
 import { router } from "./routes/routes";
 import { StoreContext, store } from "./store/store.js";
 
