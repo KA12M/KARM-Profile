@@ -3,8 +3,9 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+
 import App from "../App";
-import HomePage from "../app/Home/HomePage";
+import HomePage from "../App/home/HomePage"
 
 export const Routes = (
   <Route path={"/"} element={<App />}>
