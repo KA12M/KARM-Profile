@@ -26,6 +26,12 @@ const blogSchema = new mongoose.Schema(
         message: "Must have at least 1 photo.",
       },
     },
+    userLikes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+      },
+    ],
   },
   {
     timestamps: true,
@@ -35,7 +41,7 @@ const blogSchema = new mongoose.Schema(
 blogSchema.pre("findByIdAndUpdate", function (next) {
   this.update({}, { $set: { updatedAt: new Date() } });
   next();
-});
+});   
 
 // create model Blog
 const Blog = mongoose.model("blogs", blogSchema);

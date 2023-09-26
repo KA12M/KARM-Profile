@@ -14,4 +14,6 @@ router
   .patch(blogsController.updateBlog)
   .delete(blogsController.deleteBlog);
 
+router.route("/like/:id").post(blogsController.likeBlog);
+
 module.exports = router;

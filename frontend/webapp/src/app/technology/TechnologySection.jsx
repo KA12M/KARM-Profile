@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { GetAllTechnologies } from "../../services/technologies";
+import React  from "react"; 
+import { observer } from "mobx-react-lite";
+import { useStore } from "../../store/store";
 
-export default function TechnologySection() {
-  const [technologies, setTechnologies] = useState([]);
-
-  useEffect(() => {
-    GetAllTechnologies().then(setTechnologies);
-  }, []);
+const TechnologySection = function () {
+  const {
+    technologyStore: { technologies },
+  } = useStore();
 
   return (
     <div className="technology-section">
@@ -23,4 +22,6 @@ export default function TechnologySection() {
       </div>
     </div>
   );
-}
+};
+
+export default observer(TechnologySection);

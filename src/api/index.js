@@ -1,8 +1,12 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+
 require("dotenv").config();
 require("./src/db/mongo.config");
 require("./src/db/seedData");
+
+const { generateCookieId } = require("./src/utils/generate");
 
 const AppError = require("./src/utils/appError");
 
@@ -14,9 +18,25 @@ const port = process.env.PORT || 8000;
 
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 
+app.use(cookieParser());
 app.use(express.json());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+
+app.use((req, res, next) => {
+  if (!req.cookies.cookieId) {
+    const newCookieId = generateCookieId();
+
+    res.cookie("cookieId", newCookieId);
+  }
+
+  next();
+});
 
 app.get("/", (req, res) => {
   res.send("server is listening...");

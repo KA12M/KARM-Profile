@@ -1,38 +1,27 @@
-import React, { useState, useEffect } from "react";
-import Header from "./app/Header";
-import Footer from "./app/Footer";
-import BlogSection from "./app/blogs/BlogSection";
-import TechnologySection from "./app/technology/TechnologySection";
-import { GetKARMProfile } from "./services/karm";
-import AboutMe from "./app/about/AboutMe";
+import React, { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import { useStore } from "./store/store";
 
-export default function App() {
-  const [karmProfile, setKarmProfile] = useState();
+const App = () => {
+  const {
+    commonStore: { loadKarmProfile, isLoading, karmProfile },
+    technologyStore: { loadTechnologies },
+  } = useStore();
 
   useEffect(() => {
-    setTimeout(() => {
-      GetKARMProfile().then(setKarmProfile);
-    }, 1000);
+    loadKarmProfile();
+    loadTechnologies();
   }, []);
 
-  if (!karmProfile)
+  if (isLoading || !karmProfile)
     return (
       <div className="animate-container ">
         <h2 className="animate">Loading...</h2>
       </div>
     );
 
-  return (
-    <div>
-      <Header karm={karmProfile} />
+  return <Outlet />;
+};
 
-      <AboutMe karm={karmProfile} />
-
-      <BlogSection />
-
-      <TechnologySection />
-
-      <Footer />
-    </div>
-  );
-}
+export default observer(App);

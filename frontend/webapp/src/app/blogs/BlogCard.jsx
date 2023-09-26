@@ -1,6 +1,10 @@
 import React from "react";
 import { formatDateThai } from "./../../utils/format-date";
-import Modal from "react-modal"; 
+import Modal from "react-modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as heartSolid } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as heart } from "@fortawesome/free-solid-svg-icons";
+import { useStore } from "./../../store/store";
 
 Modal.setAppElement("#root");
 
@@ -16,7 +20,9 @@ const customStyles = {
   },
 };
 
-export default function BlogCard({ blog }) {
+const BlogCard = ({ blog }) => {
+  const { blogStore } = useStore();
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -25,6 +31,10 @@ export default function BlogCard({ blog }) {
 
   function closeModal() {
     setIsOpen(false);
+  }
+
+  function handleLikeBlog() {
+    blogStore.likeBlog(blog._id);
   }
 
   return (
@@ -36,6 +46,10 @@ export default function BlogCard({ blog }) {
         <p>{blog.description}</p>
         <hr />
         <div className="blog-card-bottom">
+          <button onClick={handleLikeBlog}>
+            <FontAwesomeIcon icon={false ? heart : heartSolid} />{" "}
+            {blog.userLikes.length}
+          </button>
           <button onClick={openModal}>Read More {"->"}</button>
         </div>
       </div>
@@ -62,4 +76,6 @@ export default function BlogCard({ blog }) {
       </Modal>
     </div>
   );
-}
+};
+
+export default BlogCard;

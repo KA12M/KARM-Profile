@@ -52,7 +52,7 @@ exports.deleteOne = (Model) =>
   });
 
 // Get All
-exports.getAll = (Model) =>
+exports.getAll = (Model, options = {}) =>
   catchAsync(async (req, res, next) => {
     // To allowed for nested GET reviews on tour (hack)
     let filter = {};
@@ -66,6 +66,7 @@ exports.getAll = (Model) =>
       .sort()
       .limitFields()
       .pagination();
+
     // const doc = await features.query.explain();
     const doc = await features.query;
 

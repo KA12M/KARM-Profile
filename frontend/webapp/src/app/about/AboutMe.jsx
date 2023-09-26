@@ -1,45 +1,50 @@
 import React from "react";
 import HeaderIcon from "../../components/HeaderIcon";
+import { useStore } from "../../store/store";
 
-export default function AboutMe({ karm }) {
+export default function AboutMe({}) {
+  const {
+    commonStore: { karmProfile },
+  } = useStore();
+
   return (
     <div className="about-me">
       <div className="container">
         <h1 className="about-me-title">About Me</h1>
         <div className="d-about-me">
-          {karm && (
+          {karmProfile && (
             <>
               <div className="about-left">
                 <div className="info">
                   <h4>Full Name:</h4>
-                  <span>{karm.fullName}</span>
+                  <span>{karmProfile.fullName}</span>
                 </div>
                 <div className="info">
                   <h4>Phone:</h4>
-                  <span>{karm.phone ?? ""}</span>
+                  <span>{karmProfile.phone ?? ""}</span>
                 </div>
                 <div className="info">
                   <h4>Email:</h4>
-                  <span>{karm.email ?? ""}</span>
+                  <span>{karmProfile.email ?? ""}</span>
                 </div>
                 <div className="info">
                   <h4>Website:</h4>
                   <span>
-                    <a href={karm.website ?? "#"}>karm.profile</a>
+                    <a href={karmProfile.website ?? "#"}>karm.profile</a>
                   </span>
                 </div>
                 <div className="info">
                   <h4>Address:</h4>
-                  <span>{karm.address ?? ""}</span>
+                  <span>{karmProfile.address ?? ""}</span>
                 </div>
               </div>
 
               <div className="about-right">
-                <h1>{karm.aboutTitle ?? ""}</h1>
-                {karm.aboutMe &&
-                  karm.aboutMe.map((el, i) => <p key={i}>{el}</p>)}
+                <h1>{karmProfile.aboutTitle ?? ""}</h1>
+                {karmProfile.aboutMe &&
+                  karmProfile.aboutMe.map((el, i) => <p key={i}>{el}</p>)}
 
-                <HeaderIcon karm={karm} bggray/>
+                <HeaderIcon karm={karmProfile} bggray />
               </div>
             </>
           )}
