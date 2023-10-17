@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as heartSolid } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as heart } from "@fortawesome/free-solid-svg-icons";
 import { useStore } from "./../../store/store";
+import ImageGallery from "../../components/ImageGallery";
 
 Modal.setAppElement("#root");
 
@@ -68,10 +69,8 @@ const BlogCard = ({ blog }) => {
         <div className="modal-content">
           <h1>{blog.title}</h1>
           <p>{blog.description}</p>
-          <div className="modal-images">
-            {blog.images.length > 0 &&
-              blog.images.map((img, i) => <img key={i} src={img} />)}
-          </div>
+
+          <ImageGallery gallery={blog.images} />
         </div>
       </Modal>
     </div>

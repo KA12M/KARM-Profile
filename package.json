@@ -1,0 +1,14 @@
+{
+  "name": "karm",
+  "version": "1.0.0",
+  "description": "[![Facebook][facebook-shield]][facebook-url]\r [![Instagram][instagram-shield]][instagram-url]\r [![LinkedIn][linkedin-shield]][linkedin-url]",
+  "main": "index.js",
+  "scripts": {
+    "webapp": "npm run dev --prefix frontend/webapp",
+    "api": "npm run dev --prefix src/api",
+    "dev": "concurrently npm run webapp & npm run api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

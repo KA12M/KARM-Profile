@@ -16,7 +16,7 @@ const BlogSection = () => {
 
   return (
     <div className="blog-section">
-      <div className="container">  
+      <div className="container">
         <div className="blog-title">
           <h1>Post on Medium</h1>
           <p>
@@ -26,7 +26,7 @@ const BlogSection = () => {
         </div>
 
         <div className="blog-list">
-          {isLoading && (
+          {/* {isLoading && (
             <div className="blog-card">
               <div className="skeleton-img" />
               <div className="skeleton-text w-50"></div>
@@ -35,7 +35,7 @@ const BlogSection = () => {
               <div className="skeleton-text w-75"></div>
               <div className="skeleton-text w-70"></div>
             </div>
-          )}
+          )} */}
 
           {blogs.map((blog) => (
             <BlogCard key={blog._id} blog={blog} />
