@@ -14,7 +14,7 @@
   <p align="center"> 
     ยังไม่เสร็จ!
     <br />
-    <a href="https://github.com/KA12M/KARM-Profile.git"><strong>View Web App »</strong></a>
+    <a href="https://karm-profile.up.railway.app"><strong>View Web App »</strong></a>
     <br />
     <br /> 
   </p>
